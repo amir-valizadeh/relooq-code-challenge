@@ -1,4 +1,4 @@
-### [deployed app](https://relooq-code-challenge.vercel.app/)
+### [deployed app on vercel](https://relooq-code-challenge.vercel.app/)
 #### [similar project that I have worked on](https://htd.medicinskoptik.se/)
 
 # Questionnaire Technical Documentation

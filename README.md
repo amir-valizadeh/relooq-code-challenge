@@ -1,12 +1,7 @@
-# Questionnaire System Documentation
+### [deployed app](https://relooq-code-challenge.vercel.app/)
+#### [similar project that I have worked on](https://htd.medicinskoptik.se/)
 
-## Overview
-
-This document outlines the architecture, design decisions, workflow, and technical details of the Questionnaire System. The system provides a step-by-step questionnaire experience where users can navigate through questions, provide answers, and submit their responses.
-
-## Architecture
-
-The Questionnaire System follows a component-based architecture using React and TypeScript. It implements a Context API-based state management system to maintain the questionnaire state across components.
+# Questionnaire Technical Documentation
 
 ### Folder Structure
 
@@ -47,8 +42,8 @@ The following diagram illustrates the data flow and component interactions in th
 ```
 ┌───────────────────────┐           ┌───────────────────────┐
 │                       │           │                       │
-│  questionsData.ts     │◄─────────┤  conditionalLogic.ts  │
-│  (Question Definitions)│           │  (Visibility Rules)   │
+│  questionsData.ts     │◄──────────┤  conditionalLogic.ts  │
+│ (Question Definitions)│           │  (Visibility Rules)   │
 │                       │           │                       │
 └──────────┬────────────┘           └───────────────────────┘
            │
@@ -58,23 +53,23 @@ The following diagram illustrates the data flow and component interactions in th
 │             QuestionnaireContext.tsx                     │
 │             (State Management)                           │
 │                                                          │
-│  ┌─────────────────────────────────────────────────┐    │
-│  │ State:                                          │    │
-│  │ - questions                                     │    │
-│  │ - currentQuestionIndex                          │    │
-│  │ - visibleQuestions                              │    │
-│  │ - isSubmitted                                   │    │
-│  └─────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────┐     │
+│  │ State:                                          │     │
+│  │ - questions                                     │     │
+│  │ - currentQuestionIndex                          │     │
+│  │ - visibleQuestions                              │     │
+│  │ - isSubmitted                                   │     │
+│  └─────────────────────────────────────────────────┘     │
 │                                                          │
-│  ┌─────────────────────────────────────────────────┐    │
-│  │ Functions:                                      │    │
-│  │ - setAnswer                                     │    │
-│  │ - goToNextQuestion                              │    │
-│  │ - goToPreviousQuestion                          │    │
-│  │ - isQuestionVisible                             │    │
-│  │ - hasError                                      │    │
-│  │ - submitQuestionnaire                           │    │
-│  └─────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────┐     │
+│  │ Functions:                                      │     │
+│  │ - setAnswer                                     │     │
+│  │ - goToNextQuestion                              │     │
+│  │ - goToPreviousQuestion                          │     │
+│  │ - isQuestionVisible                             │     │
+│  │ - hasError                                      │     │
+│  │ - submitQuestionnaire                           │     │
+│  └─────────────────────────────────────────────────┘     │
 │                                                          │
 └──────────────────────────┬───────────────────────────────┘
                            │
@@ -91,20 +86,20 @@ The following diagram illustrates the data flow and component interactions in th
 │                Questionnaire/index.tsx                   │
 │                (Main Component)                          │
 │                                                          │
-│  ┌─────────────────────────────────────────────────┐    │
-│  │ Local State:                                    │    │
-│  │ - showSummary                                   │    │
-│  │ - showValidation                                │    │
-│  └─────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────┐     │
+│  │ Local State:                                    │     │
+│  │ - showSummary                                   │     │
+│  │ - showValidation                                │     │
+│  └─────────────────────────────────────────────────┘     │
 │                                                          │
-│  ┌─────────────────────────────────────────────────┐    │
-│  │ Event Handlers:                                 │    │
-│  │ - handleNextClick                               │    │
-│  │ - handlePreviousClick                           │    │
-│  │ - handleSubmitClick                             │    │
-│  └─────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────┐     │
+│  │ Event Handlers:                                 │     │
+│  │ - handleNextClick                               │     │
+│  │ - handlePreviousClick                           │     │
+│  │ - handleSubmitClick                             │     │
+│  └─────────────────────────────────────────────────┘     │
 │                                                          │
-└───────┬────────────────┬─────────────────┬──────────────┘
+└───────┬────────────────┬─────────────────┬───────────────┘
         │                │                 │
         ▼                ▼                 ▼
 ┌───────────────┐ ┌──────────────┐ ┌──────────────┐
@@ -152,8 +147,6 @@ The following diagram illustrates the data flow and component interactions in th
 ### State Management
 The application uses React Context API for state management, which provides:
 - Centralized storage for questionnaire data
-- Shared access to state and functions across components
-- Reduced prop drilling
 
 ### Conditional Questions
 The system supports conditional logic for showing/hiding questions based on previous answers:
@@ -180,18 +173,18 @@ Framer Motion provides smooth transitions for:
 │                                                             │
 │                     TECHNICAL DEBT                          │
 │                                                             │
-├────────────────────┬────────────────────┬──────────────────┤
+├────────────────────┬────────────────────┬───────────────────┤
 │                    │                    │                   │
 │   E2E Testing      │  Dynamic Validation│  Documentation    │
 │   Priority: HIGH   │  Priority: MEDIUM  │  Priority: MEDIUM │
 │                    │                    │                   │
-└────────────────────┴────────────────────┴──────────────────┘
+└────────────────────┴────────────────────┴───────────────────┘
 ```
 
 ### E2E Testing
 **Missing component testing and end-to-end test coverage**
 
-- Implement Cypress or Playwright test suite
+- Implement Cypress test suite
 - Create test flows for all user paths
 - Test conditional logic and validation
 
@@ -202,40 +195,17 @@ Framer Motion provides smooth transitions for:
 - Support email, numeric, pattern validation
 - Add real-time validation feedback
 
-### Documentation
-**Needs more comprehensive developer documentation**
 
-- Add JSDoc comments to all components
-- Create component API documentation
-- Document extension points for new question types
-
-## Performance Considerations
-
-The current implementation focuses on functionality with room for performance improvements:
-
-1. **Memoization**: Use React.memo, useMemo, and useCallback more extensively to prevent unnecessary re-renders.
-
-2. **Virtualization**: For longer questionnaires, implement virtualization for the summary view.
-
-3. **Code Splitting**: Implement lazy loading for components that aren't immediately needed.
-
-4. **State Optimization**: Consider using reducer pattern for more complex state logic.
 
 ## Accessibility
 
-The system implements basic accessibility features, with room for improvement:
-
-- Keyboard navigation with Enter key to advance questions
+- Keyboard navigation
 - Required field labeling
 - Error state identification
-- RTL language support
+
 
 Additional accessibility improvements:
 - Implement proper ARIA attributes
 - Improve focus management
 - Ensure proper heading structure
 - Add screen reader instructions
-
-## Conclusion
-
-The Questionnaire System provides a solid foundation for creating interactive, step-by-step forms with conditional logic. While the core functionality is complete, addressing the technical debt items will enhance usability, maintainability, and testing coverage for a production-ready implementation.
